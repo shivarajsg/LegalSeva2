@@ -1,15 +1,98 @@
 # 🤖 AI Pull Request Review Agent
-### Assignment 2 — AI-Powered Development Workflow
+
+### AI Agent for Automated Code Review in Development Workflows
+
+An **AI-powered development assistant** that analyzes pull request diffs and automatically detects **security vulnerabilities, bugs, and code quality issues**.
+
+This project demonstrates how **AI agents can assist developers in real development workflows**, such as reviewing code changes before merging them into production.
 
 ---
 
-## ▶️ How to Run (Step by Step)
+# 🚀 Features
 
-### Step 1 — Install Node.js
-Download from: https://nodejs.org  
-Choose the **LTS** version. Install it normally.
+✔ Automated **Pull Request diff analysis**
+✔ Detects **security vulnerabilities**
+✔ Identifies **logic bugs and anti-patterns**
+✔ Provides **AI-generated code improvement suggestions**
+✔ Highlights **issue severity levels (Critical / Warning / Info)**
+✔ Simple interactive **web interface**
 
-To verify it installed, open terminal and run:
+---
+
+# 🧠 Example Issues Detected
+
+The sample pull request included in the project demonstrates how the AI detects multiple problems.
+
+| Issue                                  | Severity    |
+| -------------------------------------- | ----------- |
+| SQL Injection via string concatenation | 🔴 Critical |
+| MD5 password hashing (insecure)        | 🔴 Critical |
+| Hardcoded admin token                  | 🔴 Critical |
+| Unsafe SQL query in delete_user()      | 🔴 Critical |
+| Predictable token generation           | ⚠ Warning   |
+| Missing error handling                 | ⚠ Warning   |
+
+---
+
+# 🏗 System Architecture
+
+```
+Pull Request Diff
+        ↓
+AI Review Agent
+        ↓
+Security + Bug Analysis
+        ↓
+Structured Review Output
+        ↓
+Developer Fixes Issues
+```
+
+The AI agent processes **code changes instead of full files**, which mimics how real pull request review systems work.
+
+---
+
+# 📁 Project Structure
+
+```
+pr-review-agent
+│
+├── public
+│   └── index.html
+│
+├── src
+│   ├── App.js
+│   └── index.js
+│
+├── .env
+├── package.json
+├── package-lock.json
+└── README.md
+```
+
+---
+
+# ⚙️ Tech Stack
+
+| Technology           | Purpose           |
+| -------------------- | ----------------- |
+| React                | User Interface    |
+| Anthropic Claude API | AI code analysis  |
+| Node.js              | Runtime           |
+| JavaScript           | Application logic |
+
+---
+
+# 🖥 Installation Guide
+
+### 1️⃣ Install Node.js
+
+Download the LTS version:
+
+https://nodejs.org
+
+Verify installation:
+
 ```
 node -v
 npm -v
@@ -17,91 +100,96 @@ npm -v
 
 ---
 
-### Step 2 — Open this folder in VSCode
-1. Open VSCode
-2. File → Open Folder → select the `pr-review-agent` folder
+### 2️⃣ Clone the Repository
+
+```
+git clone https://github.com/shivarajsg/LegalSeva2.git
+cd pr-review-agent
+```
 
 ---
 
-### Step 3 — Install dependencies
-Open the terminal in VSCode (View → Terminal) and run:
+### 3️⃣ Install Dependencies
+
 ```
 npm install
 ```
-Wait for it to finish (downloads React).
 
 ---
 
-### Step 4 — Add your API Key
-1. Open the `.env` file in VSCode
-2. Replace `your_api_key_here` with your real key:
+### 4️⃣ Configure Environment Variables
+
+Create a `.env` file and add your Anthropic API key:
+
 ```
-REACT_APP_ANTHROPIC_API_KEY=sk-ant-api03-xxxxxxxxxxxxxxxx
+REACT_APP_ANTHROPIC_API_KEY=your_api_key_here
 ```
-3. Get a free key at: https://console.anthropic.com
+
+You can generate an API key here:
+
+https://console.anthropic.com
 
 ---
 
-### Step 5 — Start the app
+### 5️⃣ Run the Application
+
 ```
 npm start
 ```
-The app opens automatically at: **http://localhost:3000**
 
----
-
-## 🎮 How to Use
-
-1. The app opens in your browser
-2. Click **"Load Sample"** to load a buggy `auth.py` diff
-3. Click **"▶ Run AI Review"**
-4. Watch Claude detect security issues, bugs, and suggest fixes!
-
----
-
-## 🔍 What the AI Detects (in the sample diff)
-
-| Issue | Severity |
-|-------|----------|
-| SQL Injection via string concatenation | 🔴 CRITICAL |
-| MD5 used for password hashing (weak) | 🔴 CRITICAL |
-| Hardcoded admin token "ADMIN_TOKEN_123" | 🔴 CRITICAL |
-| Second SQL injection in delete_user() | 🔴 CRITICAL |
-| Missing error handling | ⚠️ WARNING |
-| Predictable token generation | ⚠️ WARNING |
-
----
-
-## 🏗️ Project Architecture
+Open the app in your browser:
 
 ```
-Developer pastes git diff
+http://localhost:3000
+```
+
+---
+
+# 🎮 Usage
+
+1. Launch the application
+2. Click **Load Sample Diff**
+3. Click **Run AI Review**
+4. The AI analyzes the code and returns detected issues with explanations
+
+---
+
+# 📊 Example Workflow
+
+```
+Developer creates pull request
         ↓
-AI Agent (Claude API)
+AI Review Agent analyzes diff
         ↓
-Analyzes: Security + Bugs + Code Quality
+Security vulnerabilities detected
         ↓
-Outputs structured review with severity levels
+Developer fixes issues before merge
 ```
 
-## 📁 File Structure
-
-```
-pr-review-agent/
-├── public/
-│   └── index.html        ← HTML template
-├── src/
-│   ├── index.js          ← React entry point
-│   └── App.js            ← Main agent UI + API logic
-├── .env                  ← 🔑 Add your API key here
-├── package.json          ← Dependencies
-└── README.md             ← This file
-```
+This demonstrates how AI can **augment developer productivity and improve software quality**.
 
 ---
 
-## 🛠️ Tech Stack
+# 🎯 Use Cases
 
-- **React 18** — UI framework
-- **Anthropic Claude API** — AI code analysis
-- **CSS-in-JS** — Styling (no extra libraries needed)
+AI-powered code review systems can assist with:
+
+• Automated pull request review
+• Security vulnerability detection
+• Bug detection during development
+• Code quality improvement
+• Developer productivity tools
+
+---
+
+# 📌 Assignment Context
+
+This project was built as part of an **AI Agent internship assignment** to demonstrate how AI agents can assist in **software development workflows**, particularly **code review automation**.
+
+---
+
+# 👨‍💻 Author
+
+Shivaraj
+Information Science Engineering
+Dayananda Sagar College of Engineering
